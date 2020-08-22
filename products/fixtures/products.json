@@ -1,0 +1,72 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "hats",
+        "slug": "hats",
+        "description": "This is awsome hats",
+        "price": "30.00",
+        "image": "products/2228469574/2228469574.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-10-05T23:39:26.958Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "supercomputer",
+        "slug": "supercomputer",
+        "description": "This is awsome super computer",
+        "price": "100.00",
+        "image": "",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-10-05T23:39:26.958Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "T-shirt",
+        "slug": "t-shirt",
+        "description": "This is an awsome T-shirt",
+        "price": "5.00",
+        "image": "",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-10-05T23:39:26.958Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "Lorem Ipsum",
+        "slug": "lorem-ipsum",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut risus felis, venenatis eu massa sit amet, tempor interdum enim. Duis ullamcorper metus vitae ullamcorper accumsan. Nulla facilisi. Vestibulum pulvinar ipsum vitae ante pretium fringilla. Nulla sit amet vulputate nunc. Morbi sollicitudin sem ipsum, in vulputate massa ultricies in. Donec rhoncus purus sed turpis aliquam, imperdiet blandit ante mattis. Maecenas in purus eu ex posuere hendrerit. Donec in nulla id nibh iaculis euismod. Aliquam suscipit hendrerit nisl, quis vestibulum orci. Cras vel congue ante. Fusce in pretium arcu. In vel varius lectus, vitae porttitor est. Duis fringilla justo vitae bibendum ullamcorper. Nullam est mauris, iaculis ac imperdiet at, feugiat quis mauris.\r\n\r\nVestibulum sem orci, tristique vitae tincidunt nec, accumsan at dui. Pellentesque vel consectetur ipsum. Vivamus mi erat, faucibus rutrum finibus at, pharetra vitae ante. Ut risus tellus, commodo ac ipsum nec, consectetur maximus ex. Vivamus sit amet rhoncus orci. Ut neque urna, egestas at nunc vitae, condimentum pretium ligula. Donec tempor ac nisl sit amet imperdiet. In mattis risus lacus, et facilisis nunc ornare id. Suspendisse tempus purus sem, et porta ipsum finibus sit amet. Donec rhoncus enim aliquam arcu rutrum, a semper nisl rhoncus. Morbi in maximus arcu. Ut faucibus sed dui sed molestie.\r\n\r\nFusce turpis lectus, finibus et aliquet in, luctus vitae neque. Nunc eget turpis ullamcorper lacus elementum consequat. Praesent gravida ligula in elit gravida, eu maximus purus venenatis. Nunc quam enim, interdum a laoreet quis, tincidunt a augue. Fusce euismod augue ut magna imperdiet iaculis. Vivamus dui enim, scelerisque sed lacinia malesuada, elementum et quam. Donec iaculis nisi sit amet velit pellentesque molestie. Mauris interdum tincidunt justo, ut aliquet erat molestie ut. Etiam rutrum at mi ut auctor. Nam ante lorem, molestie eget orci id, aliquam elementum risus.\r\n\r\nPraesent id convallis lorem, id semper nunc. Pellentesque nec mi id risus semper tincidunt. Vivamus facilisis a ex in maximus. Pellentesque ultrices turpis mauris, in aliquam felis accumsan non. Maecenas nec felis volutpat, tincidunt eros quis, sagittis nisi. In velit tortor, auctor non ipsum vel, elementum varius nunc. Vivamus vel suscipit libero. Fusce fringilla nisl eu nisl tincidunt hendrerit. Phasellus risus est, egestas vitae nunc a, faucibus convallis metus. Quisque laoreet vehicula justo vel aliquet. Pellentesque convallis ornare purus, at gravida lectus ullamcorper ut. Aliquam non felis quis felis varius laoreet vitae quis libero.\r\n\r\nAenean nec malesuada quam, ac blandit erat. Fusce tristique sollicitudin mi, non viverra nibh mattis eget. In lorem justo, ullamcorper et malesuada cursus, malesuada non ante. Ut dictum elit pretium libero malesuada, eget consequat magna pharetra. Morbi justo dui, scelerisque aliquet iaculis vel, gravida vel felis. Nullam vulputate dui in suscipit venenatis. Nullam pellentesque, augue at aliquam porta, justo ex posuere quam, sed aliquam velit nisi vel nibh. Sed iaculis at est ac mollis. Curabitur diam leo, sodales non nisl vitae, finibus fermentum dolor. In hac habitasse platea dictumst. Proin id porta nulla. In eget dignissim risus. Quisque a porta eros.",
+        "price": "40.00",
+        "image": "",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-10-05T23:39:26.958Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "title": "T-Shirt",
+        "slug": "t-shirt-34cr",
+        "description": "This is also a t shirt",
+        "price": "10.00",
+        "image": "",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-10-07T23:12:55.980Z"
+    }
+}
+]

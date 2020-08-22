@@ -1,0 +1,69 @@
+from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse
+from django.views.generic import TemplateView, View
+from django.contrib.auth.mixins import LoginRequiredMixin
+from orders.models import Order
+from django.db.models import Count, Sum, Avg
+import datetime
+from django.utils import timezone
+# Create your views here.
+
+
+class SalesAjaxView(View):
+    def get(self, request, *args, **kwargs):
+        data = {}
+        if request.user.is_staff:
+            qs = Order.objects.all().by_weeks_range(weeks_ago=5, number_of_weeks=5)
+            if request.GET.get('type') == 'week':
+                days = 7
+                start_date = timezone.now().today() - datetime.timedelta(days=days-1)
+                datetime_list = []
+                labels = []
+                salesItems = []
+                for x in range(days):
+                    new_time = start_date + datetime.timedelta(days=x)
+                    datetime_list.append(new_time)
+                    labels.append(new_time.strftime("%a"))
+                    new_qs = qs.filter(updated__day=new_time.day, updated__month=new_time.month)
+                    day_total = new_qs.totals_data()['total__sum'] or 0
+                    salesItems.append(day_total)
+                data['labels'] = labels
+                data['data'] = salesItems
+            if request.GET.get('type') == '4weeks':
+                data['labels'] = ['Four Weeks Ago', 'Three Weeks Ago', 'Two Weeks Ago', 'Last Week', 'This Week']
+                current = 5
+                data['data'] = []
+                for i in range(5):
+                    new_qs = qs.by_weeks_range(weeks_ago=current, number_of_weeks=1)
+                    sales_total = new_qs.totals_data()['total__sum'] or 0
+                    data['data'].append(sales_total)
+                    current -= 1
+        return JsonResponse(data)
+
+
+class SalesView(LoginRequiredMixin, TemplateView):
+    template_name = 'analytics/sales.html'
+
+    def dispatch(self, *args, **kwargs):
+        user = self.request.user
+        if not user.is_staff:
+            return render(self.request, '400.html', {})
+        return super(SalesView, self).dispatch(*args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(SalesView, self).get_context_data(*args, **kwargs)
+        qs = Order.objects.all().by_weeks_range(weeks_ago=10, number_of_weeks=10)
+        start_date = timezone.now().date() - datetime.timedelta(hours=24)
+        end_date = timezone.now().date() + datetime.timedelta(hours=12)
+        context['today'] = qs.by_range(start_date=start_date, end_date=end_date).get_sales_breakdown()
+        context['this_week'] = qs.by_weeks_range(weeks_ago=1, number_of_weeks=1).get_sales_breakdown()
+        context['last_four_weeks'] = qs.by_weeks_range(weeks_ago=5, number_of_weeks=4).get_sales_breakdown()
+        # context['orders'] = qs
+        # context['recent_orders'] = qs.recent().not_refunded()[:5]
+        # context['recent_orders_data'] = context['recent_orders'].totals_data()
+        # context['recent_orders_cart_data'] = context['recent_orders'].cart_data()
+        # context['shipped_orders'] = qs.recent().not_refunded().by_status(status='shipped')[:5]
+        # context['shipped_orders_data'] = context['shipped_orders'].totals_data()
+        # context['paid_orders'] = qs.recent().not_refunded().by_status(status='paid')[:5]
+        # context['paid_orders_data'] = context['paid_orders'].totals_data()
+        return context
